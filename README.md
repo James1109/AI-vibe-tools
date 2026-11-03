@@ -67,12 +67,6 @@ python -m http.server 8000
 
 接著以瀏覽器開啟 <http://localhost:8000>。
 
-## 部署方式
-1. 將專案推送至 GitHub 的 `main` 分支。
-2. 進入 **Settings → Pages**。
-3. **Source** 選擇 *Deploy from a branch*，**Branch** 選擇 `main` 與 `/ (root)`。
-4. 儲存後等待約 1–2 分鐘，即可透過上方線上網站連結瀏覽。
-
 ## AI 協作開發流程
 新增一篇文章的標準流程（完整規範請見 [`AGENTS.md`](AGENTS.md)）：
 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章總覽 | AI Developer Docs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-indigo-500/30">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <span class="font-extrabold text-xl tracking-tight bg-gradient-to-r from-white to-indigo-400 bg-clip-text text-transparent">AI Dev Docs</span>
+            </a>
+            <nav class="flex items-center space-x-6 text-sm font-medium text-slate-300">
+                <a href="../index.html" class="hover:text-indigo-400 transition-colors">首頁</a>
+                <a href="index.html" class="text-indigo-400 font-semibold">文章總覽</a>
+                <a data-github href="https://github.com" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-1.5 rounded-lg border border-slate-700 transition-all flex items-center gap-2">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-10 space-y-8">
+        <div class="border-b border-slate-800 pb-6">
+            <h1 class="text-3xl font-extrabold text-white">所有教學文章</h1>
+            <p class="text-slate-400 text-sm mt-1">探索完整的 AI 開發指南與觀念說明（最後更新：2026-11-03）</p>
+        </div>
+
+        <!-- Category Filter (rendered by script below) -->
+        <div id="category-filter" class="flex flex-wrap gap-2"></div>
+
+        <!-- Dynamic Grid -->
+        <div id="all-articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Rendered by js/data.js -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-400">
+        <p>© 2026 AI Developer Docs. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script>
+        // 分類篩選：按鈕由 CATEGORIES 自動產生，新增分類時不需修改此頁
+        document.addEventListener('DOMContentLoaded', () => {
+            const bar = document.getElementById('category-filter');
+            const base = 'px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all ';
+            const on = 'bg-indigo-600 text-white border-indigo-500';
+            const off = 'bg-slate-800 text-slate-300 border-slate-700 hover:border-indigo-500/50';
+            function select(cat) {
+                bar.innerHTML = [null, ...CATEGORIES].map(c =>
+                    `<button data-cat="${c ?? ''}" class="${base}${c === cat ? on : off}">${c ?? '全部'}</button>`
+                ).join('');
+                bar.querySelectorAll('button').forEach(btn =>
+                    btn.addEventListener('click', () => select(btn.dataset.cat || null)));
+                renderArticles('all-articles-grid', false, cat);
+            }
+            select(null);
+        });
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

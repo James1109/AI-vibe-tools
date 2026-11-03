@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Developer Docs | AI 工具與軟體開發手冊</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans antialiased">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-indigo-500/30">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <span class="font-extrabold text-xl tracking-tight bg-gradient-to-r from-white to-indigo-400 bg-clip-text text-transparent">AI Dev Docs</span>
+            </a>
+            <nav class="flex items-center space-x-6 text-sm font-medium text-slate-300">
+                <a href="index.html" class="text-indigo-400 font-semibold">首頁</a>
+                <a href="docs/index.html" class="hover:text-indigo-400 transition-colors">文章總覽</a>
+                <a href="#agents-rules" class="hover:text-indigo-400 transition-colors">AGENTS 規範</a>
+                <a data-github href="https://github.com" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-1.5 rounded-lg border border-slate-700 transition-all flex items-center gap-2">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-10 space-y-16">
+        
+        <!-- Hero Section -->
+        <section class="text-center py-12 relative overflow-hidden">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-4">
+                <i class="fa-solid fa-sparkles"></i> 規則驅動 (Rule-Driven) 開發知識庫
+            </span>
+            <h1 class="text-4xl sm:text-5xl font-black text-white tracking-tight mb-4">
+                AI 工具與軟體開發手冊
+            </h1>
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-8">
+                遵循 <code class="text-indigo-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">AGENTS.md</code> 規範建立的個人知識庫，最後更新日期：2026-11-03。
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="docs/index.html" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-indigo-600/20 transition-all">
+                    瀏覽全部文章
+                </a>
+                <a href="#agents-rules" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold px-6 py-3 rounded-xl border border-slate-700 transition-all">
+                    檢視 AGENTS 規則
+                </a>
+            </div>
+        </section>
+
+        <!-- Articles Grid -->
+        <section id="articles" class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-book-open text-indigo-400"></i> 精選文章清單
+                </h2>
+                <a href="docs/index.html" class="text-xs text-indigo-400 hover:underline">查看全部 →</a>
+            </div>
+
+            <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Dynamically rendered via js/data.js -->
+            </div>
+        </section>
+
+        <!-- AGENTS Rules Display Section -->
+        <section id="agents-rules" class="space-y-6">
+            <div class="border-b border-slate-800 pb-4">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-indigo-400"></i> AGENTS.md 規則摘要
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">AI 閱讀以下設定後，即可無縫擴充網頁</p>
+            </div>
+
+            <div class="bg-slate-950 rounded-xl p-6 border border-slate-800 font-mono text-sm space-y-4 text-slate-300">
+                <div class="flex items-center gap-2 text-indigo-400 font-bold border-b border-slate-800 pb-2">
+                    <i class="fa-solid fa-file-code"></i> AGENTS.md Core Standards
+                </div>
+                <ul class="space-y-2 list-disc list-inside text-xs sm:text-sm text-slate-300">
+                    <li><strong class="text-white">風格規範：</strong>Tailwind CSS Slate 暗色系（<code class="text-indigo-300">bg-slate-900</code>），主色調 Indigo（<code class="text-indigo-300">#6366f1</code>）。</li>
+                    <li><strong class="text-white">目錄位置：</strong>文章放在 <code class="text-indigo-300">/docs</code>，檔名採 <code class="text-indigo-300">kebab-case.html</code>。</li>
+                    <li><strong class="text-white">頁面骨架：</strong>複製 <code class="text-indigo-300">docs/template.html</code>，包含 Header、Hero、TOC、H2 內文、Key Takeaways、Footer。</li>
+                    <li><strong class="text-white">資料註冊：</strong>新增文章後在 <code class="text-indigo-300">js/data.js</code> 的 <code class="text-indigo-300">articles</code> 註冊，分類須在 <code class="text-indigo-300">CATEGORIES</code> 內。</li>
+                    <li><strong class="text-white">完成檢查：</strong>AGENTS.md 內附 Checklist，AI 完成後逐項自我檢查。</li>
+                </ul>
+                <a data-github data-github-path="blob/main/AGENTS.md" href="https://github.com" target="_blank" class="inline-flex items-center gap-2 text-indigo-400 hover:underline text-xs"><i class="fa-brands fa-github"></i> 在 GitHub 閱讀完整 AGENTS.md</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-400">
+        <p>© 2026 AI Developer Docs. Built with Rule-Driven AI Coding (2026-11-03).</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderArticles('articles-grid', true);
+        });
+    </script>
+    <script src="js/site.js"></script>
+</body>
+</html>

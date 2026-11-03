@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt 工程基礎指南 | AI Dev Docs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans antialiased">
+
+    <!-- Header (不變) -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-indigo-500/30">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <span class="font-extrabold text-xl tracking-tight bg-gradient-to-r from-white to-indigo-400 bg-clip-text text-transparent">AI Dev Docs</span>
+            </a>
+            <nav class="flex items-center space-x-6 text-sm font-medium text-slate-300">
+                <a href="../index.html" class="hover:text-indigo-400 transition-colors">首頁</a>
+                <a href="index.html" class="text-indigo-400 font-semibold">文章總覽</a>
+                <a data-github href="https://github.com" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-1.5 rounded-lg border border-slate-700 transition-all flex items-center gap-2">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article Container -->
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-10 space-y-8">
+        
+        <!-- Hero Header -->
+        <div class="space-y-4 border-b border-slate-800 pb-8">
+            <div class="flex items-center gap-3">
+                <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                    <i class="fa-solid fa-tag"></i> AI 技巧
+                </span>
+                <span class="text-xs text-slate-400 font-mono">發布日期：2026-11-03</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-white">Prompt 工程基礎指南</h1>
+            <p class="text-slate-400 text-base leading-relaxed">
+                學習如何精確撰寫提示詞：角色、任務、限制與輸出格式，發揮 LLM 的最大潛能。
+            </p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="bg-slate-800/40 rounded-xl p-5 border border-slate-700/50">
+            <h3 class="text-sm font-bold text-slate-200 mb-3 flex items-center gap-2">
+                <i class="fa-solid fa-list-ul text-indigo-400"></i> 本文目錄
+            </h3>
+            <ul class="space-y-2 text-sm text-slate-300">
+                <li><a href="#section-1" class="hover:text-indigo-400 transition-colors">1. 為什麼提示詞很重要</a></li>
+                <li><a href="#section-2" class="hover:text-indigo-400 transition-colors">2. 四要素公式</a></li>
+                <li><a href="#section-3" class="hover:text-indigo-400 transition-colors">3. 範例對照</a></li>
+                <li><a href="#section-4" class="hover:text-indigo-400 transition-colors">4. 進階技巧</a></li>
+            </ul>
+        </div>
+
+        <!-- Article Content -->
+        <article class="space-y-8 text-slate-300 leading-relaxed">
+            <section id="section-1" class="space-y-4">
+                <h2 class="text-2xl font-bold text-white border-l-4 border-indigo-500 pl-3">1. 為什麼提示詞很重要</h2>
+                <p>LLM 會根據你給的上下文推測意圖。提示越模糊，結果越不穩定；提示越具體，輸出越接近預期。Prompt 工程的核心就是「把需求講清楚」。</p>
+            </section>
+
+            <section id="section-2" class="space-y-4">
+                <h2 class="text-2xl font-bold text-white border-l-4 border-indigo-500 pl-3">2. 四要素公式</h2>
+                <p>一個好的提示詞通常包含四個部分：</p><ul class="list-disc list-inside space-y-1"><li><strong class="text-white">角色 (Role)</strong>：你希望 AI 扮演誰。</li><li><strong class="text-white">任務 (Task)</strong>：要完成的具體事項。</li><li><strong class="text-white">限制 (Constraints)</strong>：字數、風格、禁止事項。</li><li><strong class="text-white">輸出格式 (Format)</strong>：表格、條列、JSON 或 HTML。</li></ul>
+            </section>
+
+            <section id="section-3" class="space-y-4">
+                <h2 class="text-2xl font-bold text-white border-l-4 border-indigo-500 pl-3">3. 範例對照</h2>
+                <p>模糊的提示：</p><pre class="bg-slate-950 border border-slate-800 rounded-xl p-4 overflow-x-auto text-xs sm:text-sm text-slate-200"><code>幫我寫一個網頁</code></pre><p>具體的提示：</p><pre class="bg-slate-950 border border-slate-800 rounded-xl p-4 overflow-x-auto text-xs sm:text-sm text-slate-200"><code>你是資深前端工程師。請用 Tailwind CSS 做一個暗色系個人作品集首頁，
+包含 Hero、作品卡片三張與 Footer，輸出為單一 index.html。</code></pre>
+            </section>
+
+            <section id="section-4" class="space-y-4">
+                <h2 class="text-2xl font-bold text-white border-l-4 border-indigo-500 pl-3">4. 進階技巧</h2>
+                <p>提供範例（Few-shot）、要求逐步思考、先列大綱再展開，以及把長規則寫進專案層級的 <code class="text-indigo-300">AGENTS.md</code>，避免每次重複貼上。</p>
+            </section>
+
+            <!-- Key Takeaways Card -->
+            <div class="bg-indigo-950/30 border border-indigo-500/30 rounded-xl p-6 space-y-3">
+                <h3 class="text-base font-bold text-indigo-300 flex items-center gap-2">
+                    <i class="fa-solid fa-lightbulb"></i> 重點總結 (Key Takeaways)
+                </h3>
+                <ul class="list-disc list-inside text-sm text-slate-300 space-y-1.5">
+                    <li>提示詞 = 角色 + 任務 + 限制 + 輸出格式。</li>
+                    <li>範例與具體條件能大幅提升穩定度。</li>
+                    <li>重複使用的規則應寫進 AGENTS.md，而不是每次手打。</li>
+                </ul>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-400">
+        <p>© 2026 AI Developer Docs. Last updated: 2026-11-03</p>
+    </footer>
+
+    <script src="../js/site.js"></script>
+</body>
+</html>

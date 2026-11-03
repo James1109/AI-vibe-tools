@@ -1,0 +1,36 @@
+/* 自訂全站補助樣式 - AI Developer Docs (2026-11-03) */
+
+/* 捲軸自訂美化 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+/* 程式碼區塊微調 */
+pre code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* 微卡片 Hover 動畫效果 */
+.card-hover-effect {
+    transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card-hover-effect:hover {
+    transform: translateY(-2px);
+    border-color: #6366f1;
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.15);
+}

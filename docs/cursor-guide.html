@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor 編輯器高效開發實戰指南 | AI Dev Docs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-indigo-500/30">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <span class="font-extrabold text-xl tracking-tight bg-gradient-to-r from-white to-indigo-400 bg-clip-text text-transparent">AI Dev Docs</span>
+            </a>
+            <nav class="flex items-center space-x-6 text-sm font-medium text-slate-300">
+                <a href="../index.html" class="hover:text-indigo-400 transition-colors">首頁</a>
+                <a href="index.html" class="text-indigo-400 font-semibold">文章總覽</a>
+                <a data-github href="https://github.com" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-1.5 rounded-lg border border-slate-700 transition-all flex items-center gap-2">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article Container -->
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-10 space-y-8">
+        
+        <!-- Hero Header -->
+        <div class="space-y-4 border-b border-slate-800 pb-8">
+            <div class="flex items-center gap-3">
+                <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                    <i class="fa-solid fa-code"></i> 工具指南
+                </span>
+                <span class="text-xs text-slate-400 font-mono">發布日期：2026-11-03</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-white">Cursor 編輯器高效開發實戰指南</h1>
+            <p class="text-slate-400 text-base leading-relaxed">
+                探索 Cursor 的三大核心能力：Cmd+K 行內編輯、Composer 全局跨檔案程式碼生成，以及如何善用 .cursorrules 配置開發規則。
+            </p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="bg-slate-800/40 rounded-xl p-5 border border-slate-700/50">
+            <h3 class="text-sm font-bold text-slate-200 mb-3 flex items-center gap-2">
+                <i class="fa-solid fa-list-ul text-indigo-400"></i> 本文目錄
+            </h3>
+            <ul class="space-y-2 text-sm text-slate-300">
+                <li><a href="#section-1" class="hover:text-indigo-400 transition-colors">1. Cmd + K 行內 Prompt 指令</a></li>
+                <li><a href="#section-2" class="hover:text-indigo-400 transition-colors">2. Composer 多檔案協同修改</a></li>
+                <li><a href="#section-3" class="hover:text-indigo-400 transition-colors">3. 設定 AGENTS.md / .cursorrules</a></li>
+            </ul>
+        </div>
+
+        <!-- Article Content -->
+        <article class="space-y-10 text-slate-300 leading-relaxed">
+            
+            <section id="section-1" class="space-y-4">
+                <h2 class="text-2xl font-bold text-white border-l-4 border-indigo-500 pl-3">1. Cmd + K 行內 Prompt 指令</h2>
+                <p>
+                    在 Cursor 中，最常用的快捷鍵莫過於 <kbd class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-xs text-indigo-300">Cmd + K</kbd>（Windows 上為 <kbd class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-xs text-indigo-300">Ctrl + K</kbd>）。你可以圈選特定程式碼後按下的該快捷鍵，直接對 AI 下達修改或重構指令。
+                </p>
+                <div class="bg-slate-950 rounded-lg p-4 border border-slate-800 font-mono text-xs text-slate-300">
+                    <code>// 選取範例並輸入提示詞："請幫我加上 try-catch 錯誤處理與詳細註解"</code>
+                </div>
+            </section>
+
+            <section id="section-2" class="space-y-4">
+                <h2 class="text-2xl font-bold text-white border-l-4 border-indigo-500 pl-3">2. Composer 多檔案協同修改</h2>
+                <p>
+                    當需要修改的範疇跨越多個檔案時（例如新增 API 並且需更新前端調用介面），可以使用 <kbd class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-xs text-indigo-300">Cmd + I</kbd> 開啟 Composer。
+                </p>
+            </section>
+
+            <section id="section-3" class="space-y-4">
+                <h2 class="text-2xl font-bold text-white border-l-4 border-indigo-500 pl-3">3. 設定 AGENTS.md / .cursorrules</h2>
+                <p>
+                    透過在專案根目錄放置 `AGENTS.md`，可以讓 AI 在生成程式碼時主動遵照規範（如 Tailwind 樣式設計、命名規範），減少手動微調的時間。
+                </p>
+            </section>
+
+            <!-- Key Takeaways Card -->
+            <div class="bg-indigo-950/30 border border-indigo-500/30 rounded-xl p-6 space-y-3">
+                <h3 class="text-base font-bold text-indigo-300 flex items-center gap-2">
+                    <i class="fa-solid fa-lightbulb"></i> 重點總結 (Key Takeaways)
+                </h3>
+                <ul class="list-disc list-inside text-sm text-slate-300 space-y-1.5">
+                    <li>單一函式重構使用 <code class="text-indigo-300">Cmd + K</code> 最靈活。</li>
+                    <li>跨檔案新功能開發使用 <code class="text-indigo-300">Composer</code>。</li>
+                    <li>建立 <code class="text-indigo-300">AGENTS.md</code> 確保 AI 產出的程式碼風格一致。</li>
+                </ul>
+            </div>
+
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-400">
+        <p>© 2026 AI Developer Docs. Last updated: 2026-11-03</p>
+    </footer>
+
+    <script src="../js/site.js"></script>
+</body>
+</html>
